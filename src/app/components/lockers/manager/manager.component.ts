@@ -44,16 +44,16 @@ export class ManagerComponent  implements OnInit {
         }
       },
       {
-        label: 'chaine 1',
+        label: 'Verrou 1',
         component: LitteralComponent,
         data: {
           response: "vila vella",
           sqlId: 'chaine_1',
-          label: '???'
+          label: 'Dictionnaire'
         }
       },
       {
-        label: 'chaine 2',
+        label: 'Verrou 2',
         component: NumericComponent,
         data: {
           sqlId: 'chaine_2'
@@ -76,7 +76,7 @@ export class ManagerComponent  implements OnInit {
     console.log(resultats)
     if (resultats.every(res => res.state)) {
       const alert = await this._alertController.create({
-        header: "dernier indice"
+        header: "Demande Geoffrey ton dernier indice. Dis lui : Supercalifragilisticexpialidocious"
       });
       alert.present();
     } else {
