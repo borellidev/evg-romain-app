@@ -1,0 +1,17 @@
+<ion-toolbar>
+  <ion-title> {{ title }} </ion-title>
+</ion-toolbar>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let locker of lokers">
+        <ion-button expand="block" size="large" (click)="openModal(locker)">{{ locker.label }}</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="warning" size="large" (click)="getSolution()">solution</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

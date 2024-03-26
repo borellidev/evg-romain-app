@@ -1,0 +1,10 @@
+<app-locker-header [label]="label"></app-locker-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input [(ngModel)]="value" (ionInput)="setDisplay()"></ion-input>
+  </ion-item>
+    <div class="display">
+      {{display}}
+    </div>
+  <ion-button expand="block" color="success" (click)="confirm()">Confirmer</ion-button>
+</ion-content>

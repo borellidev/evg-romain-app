@@ -1,0 +1,32 @@
+<app-locker-header label="La bonne combinaison"></app-locker-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let value of values; let i = index">
+        <ion-button expand="block" fill="outline" (click)="setValue(i, -1)">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3" *ngFor="let value of values">
+        <div class="numericValue">
+          {{ value }}
+        </div>
+      </ion-col>
+      <ion-col size="3" *ngFor="let value of values; let i = index">
+        <ion-button expand="block" fill="outline" (click)="setValue(i, 1)">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button color="success" expand="block" size="large" (click)="verify()">Valider</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button color="warning" expand="block" size="large" (click)="reset()">Remise à zéro</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

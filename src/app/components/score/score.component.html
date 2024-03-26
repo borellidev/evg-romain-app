@@ -1,0 +1,17 @@
+<ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>Tableau des scores</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-list>
+        <ion-item *ngFor="let fc of friendsChallengeList">
+          <ion-checkbox #checkbox labelPlacement="start" [checked]="fc.readleFound" (ionChange)="setFcState(fc, checkbox.checked)">{{ fc.name | titlecase }}</ion-checkbox>
+        </ion-item>
+      </ion-list>
+      <ion-text *ngIf="friendsChallengeList">
+        Réussites : {{ getAchivedChallenges() }} / {{ friendsChallengeList.length }}
+      </ion-text>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>

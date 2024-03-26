@@ -1,0 +1,27 @@
+<app-locker-header label="En couleur et en mémoire" (closed)="close()"></app-locker-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="timer">
+          {{ timer }} sec.
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" *ngFor="let color of availableColors" (click)="newInput(color)">
+        <ion-button expand="block" [style]="'--background: '+color"></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <div class="timer"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let color of toShow" size="12/9">
+        <ion-button expand="block" [style]="'--background: '+color"></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,11 @@
+<app-locker-header label="Corpus"></app-locker-header>
+<ion-content class="ion-padding">
+  <table class="table">
+    <tr *ngFor="let line of array">
+      <td *ngFor="let cell of line" >
+        <img [src]="'../../../../assets/img/'+cell.imgSrc" alt=" " [style.transform]="'rotate(' + cell.rotate + 'deg)'" (click)="rotate(cell)">
+      </td>
+    </tr>
+  </table>
+  <ion-button expand="block" color="success" (click)="confirm()">confirmer</ion-button>
+</ion-content>

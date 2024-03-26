@@ -1,0 +1,12 @@
+<app-locker-header label="Bravo ! Mais c'était facile, maintenant ordonne tout le monde"></app-locker-header>
+<ion-content class="ion-padding">
+    <ion-list>
+        <ion-reorder-group [disabled]="false" (ionItemReorder)="handleReorder($any($event))">
+            <ion-item *ngFor="let guest of guestsList">
+                <ion-label> {{guest.name | titlecase }} </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>
+        </ion-reorder-group>
+    </ion-list>
+    <ion-button expand="block" color="success" (click)="confirm()">valider</ion-button>
+</ion-content>
