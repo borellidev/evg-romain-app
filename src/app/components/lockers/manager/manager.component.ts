@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { Locker } from 'src/app/models/locker';
 import { ScoreComponent } from '../../score/score.component';
@@ -28,7 +28,7 @@ export class ManagerComponent  implements OnInit {
         component: LitteralComponent,
         data: {
           response: "secret",
-          clue: "en haut de la mairie",
+          clue: "En haut de la mairie, le motif sera révélé",
           sqlId: 'symbole_1',
           label: '₰'
         }
@@ -49,7 +49,7 @@ export class ManagerComponent  implements OnInit {
         data: {
           response: "vila vella",
           sqlId: 'chaine_1',
-          label: 'Dictionnaire'
+          label: 'Mot de passe'
         }
       },
       {
@@ -73,10 +73,9 @@ export class ManagerComponent  implements OnInit {
 
   public async getSolution(): Promise<void> {
     const resultats = this._solutionService.resultats;
-    console.log(resultats)
     if (resultats.every(res => res.state)) {
       const alert = await this._alertController.create({
-        header: "Demande Geoffrey ton dernier indice. Dis lui : Supercalifragilisticexpialidocious"
+        header: "Demande à Geoffrey ton dernier indice. Dis lui : Supercalifragilisticexpialidocious"
       });
       alert.present();
     } else {
@@ -87,4 +86,11 @@ export class ManagerComponent  implements OnInit {
     }
   }
 
+  public getLockerState(locker: Locker<any>): boolean {
+    return this._solutionService.resultats?.find(res => res.id === locker.data.sqlId)!.state
+  }
+
+  public getAllLockerState(): boolean {
+    return this._solutionService.resultats?.every(res => res.state);
+  }
 }

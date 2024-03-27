@@ -38,7 +38,6 @@ export class SolutionService {
       ]
       this.store.set(this.sqlResultats, this.resultats);
     }
-    console.log(this.resultats);
   }
 
   public async validateLocker(id: 'symbole_1' | 'corpus' | 'chaine_1' | 'chaine_2'): Promise<void> {

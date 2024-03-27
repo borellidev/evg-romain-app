@@ -5,12 +5,18 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let locker of lokers">
-        <ion-button expand="block" size="large" (click)="openModal(locker)">{{ locker.label }}</ion-button>
+        <ion-button expand="block" size="large" (click)="openModal(locker)">
+          {{ locker.label }}
+          <ion-icon [name]="getLockerState(locker) ? 'lock-open' : 'lock-closed'" slot="start"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button expand="block" color="warning" size="large" (click)="getSolution()">solution</ion-button>
+        <ion-button expand="block" [color]="getAllLockerState() ? 'success' : 'warning'" size="large" (click)="getSolution()">
+          <ion-icon [name]="getAllLockerState() ? 'lock-open' : 'lock-closed'" slot="start"></ion-icon>
+          solution
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
